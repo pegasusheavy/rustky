@@ -1,0 +1,88 @@
+[general]
+update_interval_ms = 1000
+font = "monospace"
+font_size = 14.0
+fg_color = "#c0caf5"
+bg_color = "#1a1b26cc"
+# scripts_dir = "~/.config/rustky/scripts/"
+# on_draw_rhai = "on_draw.rhai"      # requires rhai-scripting feature
+# on_draw_python = "on_draw.py"      # requires python-scripting feature
+
+[window]
+x = 20
+y = 40
+width = 340
+height = 500
+transparent = true
+always_on_top = true
+decoration = false
+
+[[modules]]
+type = "hostname"
+
+[[modules]]
+type = "uptime"
+
+[[modules]]
+type = "time"
+format = "%a %Y-%m-%d %H:%M:%S"
+
+[[modules]]
+type = "text"
+content = "───────────────────"
+
+[[modules]]
+type = "cpu"
+label = "CPU"
+show_per_core = false
+
+[[modules]]
+type = "memory"
+label = "RAM"
+
+[[modules]]
+type = "disk"
+mount_point = "/"
+
+[[modules]]
+type = "network"
+interface = "wlan0"
+
+# Shell command module (always available)
+# [[modules]]
+# type = "exec"
+# command = "sensors | grep 'Package' | awk '{print $4}'"
+# label = "TEMP"
+
+# Exec with custom styling
+# [[modules]]
+# type = "exec"
+# command = "echo 'Hello from shell'"
+# style = { fg_color = "#ff9e64" }
+
+# Rhai inline expression (requires --features rhai-scripting)
+# [[modules]]
+# type = "rhai"
+# code = '''
+# fn status() {
+#     let pct = cpu_usage;
+#     if pct > 80.0 {
+#         styled(`CPU ALERT: ${pct}%`, #{ fg_color: "#f7768e" })
+#     } else {
+#         `CPU OK: ${pct}%`
+#     }
+# }
+# '''
+# function = "status"
+
+# Rhai file module (requires --features rhai-scripting)
+# [[modules]]
+# type = "rhai"
+# file = "custom.rhai"
+# function = "render"
+
+# Python file module (requires --features python-scripting)
+# [[modules]]
+# type = "python"
+# file = "custom.py"
+# function = "render"

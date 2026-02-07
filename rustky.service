@@ -1,0 +1,13 @@
+[Unit]
+Description=rustky - Wayland system monitor
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rustky
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
